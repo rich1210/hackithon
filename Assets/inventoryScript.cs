@@ -4,8 +4,12 @@ using UnityEngine.UI;
 
 
 public class inventoryScript : MonoBehaviour {
- 
-	public KeyCode relatedKey;
+
+    //basic Materal Count 
+    public static int stone;
+
+    //buttons
+    public KeyCode relatedKey;
 	public GameObject buttonRef;
 	public GameObject guiManager;
 	public Text textButton;

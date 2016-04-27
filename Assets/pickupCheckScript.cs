@@ -18,11 +18,12 @@ public class pickupCheckScript : MonoBehaviour {
         {
             if ((collidingObj.transform.position.x + 1 ) <= (controllerScript.mouseX / 3) && (collidingObj.transform.position.x + 2) >= (controllerScript.mouseX / 3))
             {
+                Debug.Log("in X rang");
                 if ((collidingObj.transform.position.y + 1) >= (controllerScript.mouseY / 3) && (collidingObj.transform.position.y) <= (controllerScript.mouseY / 3))
                  {
                     objectScript.objSelect = true;
                     collidingObj.gameObject.GetComponent<SpriteRenderer>().color = new Color(0F, 0.95F, 1F, 1F);
-                    Debug.Log(collidingObj.name);
+                   
                 }
                 else
                 {
@@ -41,7 +42,7 @@ public class pickupCheckScript : MonoBehaviour {
         {
             if (Input.GetMouseButton(0))
             {
-                Debug.Log("HIT");
+                Debug.Log("Hit");
                 collidingObj.SendMessage("hit", 25);
             }
         }
@@ -50,8 +51,11 @@ public class pickupCheckScript : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D other)
     {
-        checking = true;
-        collidingObj = other.gameObject;
+        if (other.tag == "mining")
+        {
+            checking = true;
+            collidingObj = other.gameObject;
+        }
         
     }
 

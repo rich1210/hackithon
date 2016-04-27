@@ -15,9 +15,13 @@ public class dieByPlayer : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if(other.tag == "rocks")
+       
+        if (other.name == "MainCharacter")
         {
-            //other.gameObject.transform.postion = new Vector3(100, 100, -6);
+           if(gameObject.tag == "rocks")
+            {
+                gameObject.transform.position = new Vector3(100, 100, -6);
+            }
         }
 
     }

@@ -26,34 +26,55 @@ public class rockScript : MonoBehaviour {
     {
         life = life - damage;
 
+        Debug.Log(objectScript.collectableItems[0].gameObject.transform.position);
+
         if( life <= 0 )
         {
-          // while(objectScript.collectableItems[index].gameObject.transform.position.y != -6 )
-           // {
-            //    index++;
-           // }
-            objectScript.collectableItems[0].gameObject.name = "rockItem";
-            objectScript.collectableItems[0].gameObject.transform.position = transform.position;
-            objectScript.collectableItems[0].gameObject.transform.position += new Vector3(0.5f, 0, 0);
-            //index = 0;
+            if (checkOpenResource() >= 0)
+            {
+                int tempI = checkOpenResource();
+                objectScript.collectableItems[tempI].gameObject.name = "rockItem";
+                objectScript.collectableItems[tempI].gameObject.transform.position = transform.position;
+                objectScript.collectableItems[tempI].gameObject.transform.position += new Vector3(0.5f, 0, 0);
+            }
+            else
+            {
+                Debug.Log("No Items Avaliable for Gabs");
+            }
 
-            //while (objectScript.collectableItems[index].gameObject.transform.position.y != -6)
-           // {
-            //    index++;
-           // }
-            objectScript.collectableItems[1].gameObject.name = "rockItem1";
-            objectScript.collectableItems[1].gameObject.transform.position = transform.position;
-            objectScript.collectableItems[1].gameObject.transform.position += new Vector3(-0.5f, 0, 0);
-            //index = 0;
-            
+            if (checkOpenResource() >= 0)
+            {
+                int tempI = checkOpenResource();
+                objectScript.collectableItems[tempI].gameObject.name = "rockItem1";
+                objectScript.collectableItems[tempI].gameObject.transform.position = transform.position;
+                objectScript.collectableItems[tempI].gameObject.transform.position += new Vector3(-0.5f, 0, 0);
+            }
+            else
+            {
+                Debug.Log("No Items Avaliable for Gabs");
+            }
+
             // set the position of the stone
-            transform.position += new Vector3(100,100,10);
+            transform.position += new Vector3(100,100,-6);
 
-            
+            life = 100;
         }
     }
 
 
+    int checkOpenResource()
+    {
+        int index = -1;
 
+        for( int i = 0; i < 10; i++)
+        {
+           if( objectScript.collectableItems[i].gameObject.transform.position.z == -6)
+            {
+                index = i;
+            }
+        }
+        return index;
+    }
 
+    
 }

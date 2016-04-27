@@ -10,7 +10,7 @@ public class objectScript : MonoBehaviour {
     { 
         for( int i = 0; i < 10; i++ )
         {
-            collectableItems[i] = (GameObject)Instantiate(mainItems, new Vector3(100,100,-6), Quaternion.Euler(0, 0, 0));
+            collectableItems[i] = (GameObject)Instantiate(mainItems, new Vector3(100,100+i,-6), Quaternion.Euler(0, 0, 0));
             
         }
 	
