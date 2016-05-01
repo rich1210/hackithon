@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class inventoryScript : MonoBehaviour {
 
     //basic Materal Count 
+        // count
+        // item id 
+        // sprite  
     public static int stone;
 
     //buttons
